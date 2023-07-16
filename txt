@@ -1,0 +1,21 @@
+function rotateArrayRight(arr, rotationCount) {
+  const rotatedArr = [];
+  const length = arr.length;
+
+  // Adjust rotation count to avoid unnecessary rotations
+  const rotations = rotationCount % length;
+
+  for (let i = 0; i < length; i++) {
+    const newIndex = (i + rotations) % length;
+    rotatedArr[newIndex] = arr[i];
+  }
+
+  return rotatedArr;
+}
+
+// Example usage:
+const inputArray = [1, 2, 3, 4, 5];
+const rotationCount = 2;
+const rotatedArray = rotateArrayRight(inputArray, rotationCount);
+
+console.log(rotatedArray); // Output: [4, 5, 1, 2, 3]
